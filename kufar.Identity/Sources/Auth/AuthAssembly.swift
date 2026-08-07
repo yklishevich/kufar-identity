@@ -3,6 +3,7 @@ import AuthData
 import AuthUI
 import SessionInterface
 import Networking
+import NetworkingInterface
 
 /// Фасад вместо реэкспорта.
 ///
@@ -12,7 +13,7 @@ import Networking
 /// `any SessionStore`, и переезд с кейчейна не трогает AppComposition.
 public enum AuthAssembly {
 
-    public static func makeSession(client: APIClient) -> any SessionStore {
+    public static func makeSession(client: any HTTPPerforming) -> any SessionStore {
         KeychainSessionStore(client: client)
     }
 

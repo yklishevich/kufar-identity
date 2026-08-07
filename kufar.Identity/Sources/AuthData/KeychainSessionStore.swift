@@ -1,6 +1,7 @@
 import Foundation
 import SessionInterface
 import Networking
+import NetworkingInterface
 import SharedKernel
 
 /// Реализация SessionStore. В настоящем проекте — Keychain плюс refresh токена.
@@ -11,7 +12,7 @@ package final class KeychainSessionStore: SessionStore, @unchecked Sendable {
     private let stream: AsyncStream<SessionState>
     private let continuation: AsyncStream<SessionState>.Continuation
 
-    package init(client: APIClient) {
+    package init(client: any HTTPPerforming) {
         _ = client
         (stream, continuation) = AsyncStream.makeStream(of: SessionState.self)
     }
