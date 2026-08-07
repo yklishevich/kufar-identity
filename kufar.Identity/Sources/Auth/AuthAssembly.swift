@@ -2,7 +2,6 @@ import SwiftUI
 import AuthData
 import AuthUI
 import SessionInterface
-import Networking
 import NetworkingInterface
 
 /// Фасад вместо реэкспорта.

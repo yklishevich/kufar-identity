@@ -44,7 +44,6 @@ let package = Package(
             name: "AuthData",
             dependencies: [
                 .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
-                .product(name: "Networking", package: "kufar.Foundation"),
                 .product(name: "NetworkingInterface", package: "kufar.Foundation"),
                 .product(name: "SharedKernel", package: "kufar.Foundation")
             ]
@@ -64,7 +63,6 @@ let package = Package(
                 "AuthUI",
                 "AuthData",
                 .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
-                .product(name: "Networking", package: "kufar.Foundation"),
                 .product(name: "NetworkingInterface", package: "kufar.Foundation")
             ]
         )
