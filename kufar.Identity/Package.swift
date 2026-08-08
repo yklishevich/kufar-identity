@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(id: "kufar.IdentityContracts", from: "1.0.0"),
+        .package(id: "kufar.SessionContracts", from: "1.0.0"),
         .package(id: "kufar.SearchContracts", from: "1.0.0"),
         .package(id: "kufar.Foundation", from: "1.0.0"),
         .package(id: "kufar.Navigation", from: "1.0.0"),
@@ -24,7 +25,7 @@ let package = Package(
             name: "ProfileUI",
             dependencies: [
                 .product(name: "ProfileInterface", package: "kufar.IdentityContracts"),
-                .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
+                .product(name: "SessionInterface", package: "kufar.SessionContracts"),
                 .product(name: "SearchInterface", package: "kufar.SearchContracts"),
                 .product(name: "Navigation", package: "kufar.Navigation"),
                 .product(name: "DesignTokens", package: "kufar.DesignTokens"),
@@ -36,14 +37,14 @@ let package = Package(
             name: "Profile",
             dependencies: [
                 "ProfileUI",
-                .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
+                .product(name: "SessionInterface", package: "kufar.SessionContracts"),
                 .product(name: "SharedKernel", package: "kufar.Foundation")
             ]
         ),
         .target(
             name: "AuthData",
             dependencies: [
-                .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
+                .product(name: "SessionInterface", package: "kufar.SessionContracts"),
                 .product(name: "NetworkingInterface", package: "kufar.Foundation"),
                 .product(name: "SharedKernel", package: "kufar.Foundation")
             ]
@@ -52,7 +53,7 @@ let package = Package(
             name: "AuthUI",
             dependencies: [
                 .product(name: "AuthInterface", package: "kufar.IdentityContracts"),
-                .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
+                .product(name: "SessionInterface", package: "kufar.SessionContracts"),
                 .product(name: "DesignTokens", package: "kufar.DesignTokens"),
                 .product(name: "DesignComponents", package: "kufar.DesignComponents")
             ]
@@ -62,7 +63,7 @@ let package = Package(
             dependencies: [
                 "AuthUI",
                 "AuthData",
-                .product(name: "SessionInterface", package: "kufar.IdentityContracts"),
+                .product(name: "SessionInterface", package: "kufar.SessionContracts"),
                 .product(name: "NetworkingInterface", package: "kufar.Foundation")
             ]
         )
