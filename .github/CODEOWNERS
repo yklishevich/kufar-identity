@@ -1,0 +1,19 @@
+# kufar-identity — репозиторий команды identity.
+#
+# Файл лежит в .github/ намеренно: GitHub читает CODEOWNERS только из корня
+# репозитория, из .github/ или из docs/. Пути ВНУТРИ файла работают,
+# вложенные файлы — нет. Место проверяет Tools/deplint.py, правило 11.
+#
+# Побеждает ПОСЛЕДНЕЕ совпавшее правило, поэтому контрактные пакеты ниже.
+#
+# Несколько владельцев — это ИЛИ, а не И: апрува достаточно от любого
+# одного, AND в CODEOWNERS не выражается. Платформа стоит вторым
+# владельцем у контрактов потому, что их подключают чужие репозитории
+# и ломающее изменение здесь останавливает чужие сборки.
+#
+# kufar.SessionContracts отдельной строкой не потому, что он особенный,
+# а потому что это контракт: его берут AppFeature и AppComposition.
+
+*                           @kufar/ios-identity
+/kufar.IdentityContracts/   @kufar/ios-identity @kufar/ios-platform
+/kufar.SessionContracts/    @kufar/ios-identity @kufar/ios-platform
